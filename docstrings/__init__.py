@@ -3,7 +3,7 @@ from pathlib import Path
 import click
 
 from .docgenerator import process_module, check_module
-from .files import get_python_files
+from docstrings.generator import get_python_files
 
 
 @click.command()
@@ -11,7 +11,6 @@ from .files import get_python_files
 @click.option("--check", is_flag=True, help="Only check for missing docstrings.")
 @click.option("--recursive", is_flag=True, help="Recursively process directories.")
 @click.option("--verbose", "-v", is_flag=True, help="Enable verbose output.")
-
 def main(paths, check, recursive, verbose):
     """Generate NumPy-style docstrings for Python files."""
     if not paths:

@@ -2,8 +2,7 @@ from typing import List, Optional, Tuple
 
 import libcst as cst
 
-from docstrings.utils.definitions import (DOCSTRING_FOR_CLASS,
-                                         DOCSTRING_FOR_FUNCTION)
+from docstrings.utils.templates import DOCSTRING_FOR_CLASS, DOCSTRING_FOR_FUNCTION
 
 
 class FunctionAndClassVisitor(cst.CSTTransformer):
@@ -58,10 +57,8 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
 
         if original_node.get_docstring() is not None:
             return updated_node
-        
-        self.missing_docstrings.append(
-                ("class", original_node.name.value)
-            )
+
+        self.missing_docstrings.append(("class", original_node.name.value))
 
         # Determine indentation based on the body
         final_docstring = self._build_indented_docstring(DOCSTRING_FOR_CLASS, indent_ws)
@@ -93,9 +90,7 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
         if original_node.get_docstring() is not None:
             return updated_node
 
-        self.missing_docstrings.append(
-                ("function", original_node.name.value)
-            )
+        self.missing_docstrings.append(("function", original_node.name.value))
 
         # Determine indentation based on the body
         final_docstring = self._build_indented_docstring(
@@ -119,5 +114,5 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
 
         visitor = cls(file_path=file_path)
         module.visit(visitor)
-        
+
         return visitor

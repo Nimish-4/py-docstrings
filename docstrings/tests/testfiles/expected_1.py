@@ -55,7 +55,7 @@ def calculate(a, b):
     numpy.ndarray : Relationship (optional), which could be fairly long, in
                     which case the line wraps here.
     numpy.dot, numpy.linalg.norm, numpy.eye
-    
+
     Notes
     -----
     Notes about the implementation algorithm (if needed).
@@ -84,4 +84,4 @@ def calculate(a, b):
     >>> print([x + 3 for x in a])
     [4, 5, 6]
     """
-    return a+b
+    return a + b

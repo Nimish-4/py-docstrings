@@ -1,9 +1,9 @@
 class xyz:
     """One line summary for the class and its purpose.
 
-    The __init__ method can be documented either here, or have its separate 
+    The __init__ method can be documented either here, or have its separate
     docstring in the method itself. Stick with one of the two choices.
-    This paragraph (and others that may follow) are for explaining the 
+    This paragraph (and others that may follow) are for explaining the
     class in more detail.
 
     After closing the class docstring, there should be one blank line to
@@ -37,11 +37,12 @@ class xyz:
     ----------
     [1] https://numpydoc.readthedocs.io/en/latest/
     """
+
     def __init__(self, a, b):
         """Initialize `a` and `b`"""
         self.a = a
         self.b = b
-    
+
     def calculate(self):
         """Calculate the sum of `a` and `b`"""
         return self.a + self.b

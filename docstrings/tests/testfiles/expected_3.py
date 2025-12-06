@@ -1,45 +1,47 @@
 import math
 
+
 class xyz:
-  """One line summary for the class and its purpose.
+    """One line summary for the class and its purpose.
 
-  The __init__ method can be documented either here, or have its separate 
-  docstring in the method itself. Stick with one of the two choices.
-  This paragraph (and others that may follow) are for explaining the 
-  class in more detail.
+    The __init__ method can be documented either here, or have its separate
+    docstring in the method itself. Stick with one of the two choices.
+    This paragraph (and others that may follow) are for explaining the
+    class in more detail.
 
-  After closing the class docstring, there should be one blank line to
-  separate following codes (PEP257).
+    After closing the class docstring, there should be one blank line to
+    separate following codes (PEP257).
 
-  Note
-  ----
-  The `self` parameter is not listed as the first parameter of methods.
+    Note
+    ----
+    The `self` parameter is not listed as the first parameter of methods.
 
-  Parameters
-  ----------
-  num : float
-      The number to be used for operations.
+    Parameters
+    ----------
+    num : float
+        The number to be used for operations.
 
-  msg : str (default: "")
-      Message to be displayed.
+    msg : str (default: "")
+        Message to be displayed.
 
-  Attributes
-  ----------
-  x : int
-      Description of attribute `x`
+    Attributes
+    ----------
+    x : int
+        Description of attribute `x`
 
-  Examples
-  --------
-  Import an example class
+    Examples
+    --------
+    Import an example class
 
-  >>> from foo import bar
-  >>> y = bar(3.14)
+    >>> from foo import bar
+    >>> y = bar(3.14)
 
-  References
-  ----------
-  [1] https://numpydoc.readthedocs.io/en/latest/
-  """
-  def __init__(self, a, b):
+    References
+    ----------
+    [1] https://numpydoc.readthedocs.io/en/latest/
+    """
+
+    def __init__(self, a, b):
         """Summarize the function in one line.
 
         Several sentences providing an extended description. Refer to
@@ -125,12 +127,13 @@ class xyz:
         >>> print([x + 3 for x in a])
         [4, 5, 6]
         """
-        
+
         self.a = a
         self.b = b
-    
-  def calculate_log(self):
+
+    def calculate_log(self):
         """Return sum of logarithms of `a` and `b`"""
+
         def log(x):
             return math.log(x)
 
