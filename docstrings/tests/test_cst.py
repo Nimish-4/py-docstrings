@@ -1,6 +1,8 @@
-import libcst as cst
 import re
 from pathlib import Path
+
+import libcst as cst
+
 from docstrings.generator import FunctionAndClassVisitor
 
 
