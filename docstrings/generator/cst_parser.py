@@ -3,7 +3,7 @@ from typing import List, Optional, Tuple
 
 import libcst as cst
 
-from docstrings.generator.templates import (DOCSTRING_FOR_CLASS,
+from docstrings.templates import (DOCSTRING_FOR_CLASS,
                                             DOCSTRING_FOR_FUNCTION)
 
 
