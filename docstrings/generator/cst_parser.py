@@ -11,7 +11,7 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
     """
     Class for parsing and modifying code inside a module.
 
-    The code is parsed using the parser from libcst. CST in this context is an
+    The code is parsed using the parser from libcst. CST in this context is a
     Concrete Syntax Tree. While parsing, we keep track of the indentation
     level, which is used to correctly place the docstring inside the class
     or method.

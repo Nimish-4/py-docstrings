@@ -19,7 +19,7 @@ def process_module(file_path: str) -> bool:
             print(f"Skipping {file_path} (parse error): {parse_err}")
             return False
 
-        visitor = FunctionAndClassVisitor(file_path=file_path)
+        visitor = FunctionAndClassVisitor(file_path=path)
         modified_module = module.visit(visitor)
 
         # check if the code has been modified
