@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from docstrings.generator import get_python_files
+from docgen.generator import get_python_files
 
 
 @pytest.fixture

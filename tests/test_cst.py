@@ -1,9 +1,8 @@
 import re
-from pathlib import Path
-
 import libcst as cst
 
-from docstrings.generator import FunctionAndClassVisitor
+from pathlib import Path
+from docgen.generator import FunctionAndClassVisitor
 
 
 def test_function_docstring():

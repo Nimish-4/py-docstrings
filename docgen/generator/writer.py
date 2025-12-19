@@ -2,7 +2,7 @@ from pathlib import Path
 
 import libcst as cst
 
-from docstrings.generator import FunctionAndClassVisitor
+from docgen.generator import FunctionAndClassVisitor
 
 
 def process_module(file_path: str) -> bool:

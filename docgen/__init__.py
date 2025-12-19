@@ -2,7 +2,7 @@ from pathlib import Path
 
 import click
 
-from docstrings.generator import check_module, get_python_files, process_module
+from docgen.generator import check_module, get_python_files, process_module
 
 
 @click.command()
