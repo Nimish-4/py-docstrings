@@ -41,7 +41,6 @@ def test_non_recursive_collect(temp_project):
 
 
 def test_recursive_collect(temp_project):
-    print("test - ", str(temp_project))
     files = get_python_files(
         paths=[str(temp_project)], recursive=True, root=temp_project
     )
