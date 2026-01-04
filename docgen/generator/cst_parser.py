@@ -48,9 +48,10 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
 
         elif node.body.body:
             first_stmt = node.body.body[0]
+            # If not string -> standard indent of 4 whitespaces
             indent_ws = (
                 len(first_stmt.leading_lines[0].indent.value)
-                if first_stmt.leading_lines and first_stmt.leading_lines[0].indent
+                if first_stmt.leading_lines and isinstance(first_stmt.leading_lines[0].indent, str)
                 else 4
             )
         else:
