@@ -2,11 +2,15 @@ import re
 import libcst as cst
 
 from pathlib import Path
-from docgen.generator import FunctionAndClassVisitor
+from docgen.generator import (
+    FunctionAndClassVisitor,
+)
 
 
 def test_function_docstring():
-    function_str = Path("tests/testfiles/input_1.py").read_text(encoding="utf-8")
+    function_str = Path("tests/testfiles/input_1.py").read_text(
+        encoding="utf-8"
+    )
 
     module = cst.parse_module(function_str)
     visitor = FunctionAndClassVisitor(file_path=None)

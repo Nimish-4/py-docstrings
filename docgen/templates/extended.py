@@ -1,5 +1,3 @@
-
-
 DOCSTRING_FOR_FUNCTION = """Summarize the function in one line.
 
 Several sentences providing an extended description. Refer to
@@ -88,9 +86,9 @@ use the function.
 
 DOCSTRING_FOR_CLASS = """One line summary for the class and its purpose.
 
-The __init__ method can be documented either here, or have its separate 
+The __init__ method can be documented either here, or have its separate
 docstring in the method itself. Stick with one of the two choices.
-This paragraph (and others that may follow) are for explaining the 
+This paragraph (and others that may follow) are for explaining the
 class in more detail.
 
 After closing the class docstring, there should be one blank line to
