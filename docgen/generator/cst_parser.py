@@ -3,7 +3,12 @@ from typing import List, Optional, Tuple
 
 import libcst as cst
 
-from docstrings.templates import DOCSTRING_FOR_CLASS, DOCSTRING_FOR_FUNCTION
+from docgen.templates import (
+    DOCSTRING_FOR_CLASS,
+    DOCSTRING_FOR_FUNCTION,
+    DOCSTRING_FOR_CLASS_DEFAULT,
+    DOCSTRING_FOR_FUNCTION_DEFAULT,
+)
 
 
 class FunctionAndClassVisitor(cst.CSTTransformer):
@@ -14,8 +19,8 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
     Concrete Syntax Tree. While parsing, we keep track of the indentation
     level, which is used to correctly place the docstring inside the class
     or method.
-    The visitor does not modify any function inside another function. Only outer
-    level functions and classes (along with their methods) are modified.
+    The visitor does not modify any function inside another function. Only
+    outer level functions and classes (along with their methods) are modified.
 
     Arguments
     ---------
@@ -24,11 +29,21 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
 
     """
 
-    def __init__(self, file_path=None):
+    def __init__(
+        self,
+        file_path: pathlib.Path = pathlib.Path.cwd(),
+        docstring_type: bool = False,
+    ):
         self.stack: List[Tuple[str, ...]] = []
         self.missing_docstrings = []
         self.indent_level = 0  # track no. of whitespaces at current level
         self.file_path = file_path
+        if docstring_type is False:
+            self.class_docstring = DOCSTRING_FOR_CLASS_DEFAULT
+            self.function_docstring = DOCSTRING_FOR_FUNCTION_DEFAULT
+        else:
+            self.class_docstring = DOCSTRING_FOR_CLASS
+            self.function_docstring = DOCSTRING_FOR_FUNCTION
 
     def _build_indented_docstring(self, raw_text: str, indent_ws: str) -> str:
         lines = raw_text.strip("\n").splitlines()
@@ -48,9 +63,11 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
 
         elif node.body.body:
             first_stmt = node.body.body[0]
+            # If not string -> standard indent of 4 whitespaces
             indent_ws = (
                 len(first_stmt.leading_lines[0].indent.value)
-                if first_stmt.leading_lines and first_stmt.leading_lines[0].indent
+                if first_stmt.leading_lines
+                and isinstance(first_stmt.leading_lines[0].indent, str)
                 else 4
             )
         else:
@@ -78,7 +95,9 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
         self.missing_docstrings.append(("class", original_node.name.value))
 
         # Determine indentation based on the body
-        final_docstring = self._build_indented_docstring(DOCSTRING_FOR_CLASS, indent_ws)
+        final_docstring = self._build_indented_docstring(
+            self.class_docstring, indent_ws
+        )
 
         docstring_stmt = cst.SimpleStatementLine(
             body=[cst.Expr(value=cst.SimpleString(final_docstring))],
@@ -111,7 +130,7 @@ class FunctionAndClassVisitor(cst.CSTTransformer):
 
         # Determine indentation based on the body
         final_docstring = self._build_indented_docstring(
-            DOCSTRING_FOR_FUNCTION, indent_ws
+            self.function_docstring, indent_ws
         )
 
         docstring_stmt = cst.SimpleStatementLine(

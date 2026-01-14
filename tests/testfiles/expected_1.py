@@ -64,9 +64,9 @@ def calculate(a, b):
 
     You may include some math:
 
-    .. math:: X(e^{j\omega } ) = x(n)e^{ - j\omega n}
+    .. math:: X(e^{j\\omega } ) = x(n)e^{ - j\\omega n}
 
-    And even use a Greek symbol like :math:`\omega` inline.
+    And even use a Greek symbol like :math:`\\omega` inline.
 
     References
     ----------
