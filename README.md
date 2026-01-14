@@ -1,4 +1,6 @@
-# py-docgen
+<h1 align="center">
+<img src="logo.png" width="200" height=200  border='0px'>
+</h1><br>
 
 A command-line tool for generating Python docstrings using Concrete Syntax Trees (CST).
 
@@ -7,7 +9,9 @@ original formatting, comments, and structure. `py-docgen` uses Concrete Syntax T
 retain the exact structure of the original source code. The primary interface is the CLI, with a
 few different options depending upon use.
 
----
+
+
+
 
 ## Installation
 
@@ -15,8 +19,6 @@ few different options depending upon use.
 pip install py-docgen
 ```
 
-
----
 ## Basic Usage
 
 To generate docstrings directly in a file:
@@ -30,8 +32,6 @@ To check for missing docstrings without modifying files:
 ```bash
 docgen main.py --check
 ```
-
----
 
 ## Additional Options
 
@@ -104,8 +104,6 @@ def add(a, b):
 
 Existing docstrings are **not overwritten**.
 
-
----
 
 ## Upcoming features
 
