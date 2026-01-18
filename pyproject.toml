@@ -23,3 +23,7 @@ dev = ["pytest"]
 
 [project.scripts]
 docgen = "docgen:main"
+
+[project.urls]
+Homepage = "https://github.com/Nimish-4/py-docgen"
+Repository = "https://github.com/Nimish-4/py-docgen"
